@@ -4,22 +4,22 @@ import React, { useState } from 'react'
 
 export default function WelcomeScreen() {
     const [ firstName, onChangeFirstName ] = useState('')
-    const colorScheme = useColorScheme;
+    const colorScheme = useColorScheme();
 
   return (
     <ScrollView indicatorStyle={"white"}  style={styles.container}  keyboardDismissMode={"on-drag"}>
-     <View style={[styles.logoContainer, colorScheme === "light" ? {backgroundColor: "#fff"} : {backgroundColor: "#333"}]}>
+     <View style={styles.logoContainer}>
         <Image style={styles.logo}
         source={require("../assets/logo.png")}
         resizeMode="cover"
         accessible={true}
         accesibilityLabel={"Little Lemon logo"}
         />
-        <Text style={[styles.copy, colorScheme === "light" ? {color: "#333"} : {color: "#fff"}]}>
+        <Text style={styles.copy}>
         Little Lemon</Text>
      </View>
       <Text 
-      style={[styles.copy, colorScheme === "dark" ? {color: "#fff"} : {color: "#333"}]}>
+      style={styles.copy}>
             Little Lemon is a charming neighborhood bistro that serves simple food and classic cocktails in a lively but casual environment. We would love to hear more about your experience with us!
     </Text>
     {/* <TextInput style={styles.inputContainer}
@@ -42,7 +42,8 @@ const styles = StyleSheet.create({
         margin: 10
     },
     container: {
-        flex: 1
+        flex: 1,
+        backgroundColor: '#333333'
     },
     copy: {
         fontSize: 24, 

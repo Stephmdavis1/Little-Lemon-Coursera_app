@@ -4,6 +4,7 @@ import React from 'react'
 
 
 
+
 const menuItemsToDisplay = [
     {
       title: 'Appetizers',
@@ -82,6 +83,7 @@ export default function MenuItems() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: "#333333"
     },
     innerContainer: {
         paddingHorizontal: 40,
@@ -90,11 +92,11 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     itemText: {
-        color: '#f4ce14',
+        color: '#EE9972',
         fontSize: 20,
     },
     headerStyle: {
-        backgroundColor: '#F4CE14',
+        backgroundColor: '#EE9972',
       },
       sectionHeader: {
         color: 'black',

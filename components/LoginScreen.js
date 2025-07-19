@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ScrollView, Text, StyleSheet, TextInput, Pressable} from 'react-native';
 
-export default function LoginScreen() {
+export default function LoginScreen({navigation}) {
     const [ email, onChangeEmail ] = useState('');
     const [ password, onChangePassword ] = useState('');
     const [ loggedIn, onLogin ] = useState(false);
@@ -9,11 +9,7 @@ export default function LoginScreen() {
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.headerText}>Welcome to Little Lemon</Text>
-      {loggedIn && <Text style={styles.headerText}>You are logged in!</Text>}
-
-      {!loggedIn && (
-        <>
-        <Text style={styles.regularText}>Login to continue </Text>
+      <Text style={styles.regularText}>Login to continue </Text>
             <TextInput style={styles.inputContainer}
             value={email}
             onChangeText={onChangeEmail}
@@ -31,12 +27,10 @@ export default function LoginScreen() {
             clearButtonMode="always"
             />
             <Pressable style={styles.logInButton}
-            onPress={() => {onLogin(!loggedIn)}}
+            onPress={() => navigation.navigate("Welcome")}
             >
             <Text style={styles.buttonText}>Log In</Text>
          </Pressable>
-        </>
-      )}
     </ScrollView>
   );
 }
@@ -44,6 +38,7 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#333333'
   },
   headerText: {
     padding: 40,
@@ -71,7 +66,7 @@ const styles = StyleSheet.create({
         width: 200,
         marginVertical: 8,
         margin: 100,
-        borderWidth: 1,
+        borderWidth: 0,
         padding: 5,
         fontSize: 22,
         backgroundColor: "#EE9972",
